@@ -1,6 +1,6 @@
 # graphql-playground
 
-NOT YET IMPLEMENTED
+NOT YET FULLY IMPLEMENTED
 
 📚 Learning and exploring _GraphQL_ and _GraphQL Java_
 
@@ -14,8 +14,15 @@ goodness. I need to learn it. This project is me doing that.
 Follow these instructions to build and run the app:
 
 1. Use Java 17
-1. Build and run the app:
-    * `./gradlew run`
+2. Build the app:
+    * `./gradlew installDist`
+3. Build and run the app:
+    * `build/install/graphql-playground/bin/graphql-playground "hello world!"`
+    * You should notice that the "hello world!" message got echoed back
+4. Alias the build and run commands for happier development:
+     * `alias go="./gradlew installDist && build/install/graphql-playground/bin/graphql-playground"`
+     * For example, try the following command to build and run the program in one short step.
+     * `go "hi there!"`
 
 ## TODO
 
