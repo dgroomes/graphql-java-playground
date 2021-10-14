@@ -7,6 +7,8 @@ import graphql.schema.idl.SchemaParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
 public class App {
@@ -21,14 +23,8 @@ public class App {
             System.exit(1);
         }
 
-        var schema = """
-                type Query{
-                    message: String
-                }
-                """;
-
         var schemaParser = new SchemaParser();
-        var typeDefinitionRegistry = schemaParser.parse(schema);
+        var typeDefinitionRegistry = schemaParser.parse(new File("schema.graphqls"));
 
         var runtimeWiring = newRuntimeWiring()
                 .type("Query", builder -> builder.dataFetcher("message", new StaticDataFetcher(args[0])))
