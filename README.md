@@ -17,12 +17,12 @@ Follow these instructions to build and run the app:
 2. Build the app:
     * `./gradlew installDist`
 3. Build and run the app:
-    * `build/install/graphql-playground/bin/graphql-playground "hello world!"`
+    * `build/install/graphql-playground/bin/graphql-playground "hello world!" LOUD`
     * You should notice that the "hello world!" message got echoed back
 4. Alias the build and run commands for happier development:
      * `alias go="./gradlew installDist && build/install/graphql-playground/bin/graphql-playground"`
      * For example, try the following command to build and run the program in one short step.
-     * `go "hi there!" NORMAL`
+     * `go "hi there!" LOUD`
 
 ## TODO
 
