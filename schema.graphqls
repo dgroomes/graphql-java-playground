@@ -1,3 +1,9 @@
-type Query{
-    message: String
+type Query {
+    echo(message: String, echoFlavor: EchoFlavor): String
+}
+
+enum EchoFlavor {
+    NORMAL
+    LOUD
+    EXTRA
 }

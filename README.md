@@ -1,13 +1,13 @@
 # graphql-playground
 
-NOT YET FULLY IMPLEMENTED
-
 📚 Learning and exploring _GraphQL_ and _GraphQL Java_
 
 ## Description
 
 I've been sleeping on GraphQL for years but it has only exploded in popularity, feature richness and I think overall
 goodness. I need to learn it. This project is me doing that.
+
+This is an "echo" program that echoes a message back to you, but with some flair! Read the source code to learn more.
 
 ## Instructions
 
@@ -22,12 +22,11 @@ Follow these instructions to build and run the app:
 4. Alias the build and run commands for happier development:
      * `alias go="./gradlew installDist && build/install/graphql-playground/bin/graphql-playground"`
      * For example, try the following command to build and run the program in one short step.
-     * `go "hi there!"`
+     * `go "hi there!" NORMAL`
 
 ## TODO
 
-* Write a simple GraphQL Java program that uses GraphQL Java
-    * Generate some test data procedurally and store in in memory (a simple Map)
+* DONE Write a simple GraphQL Java program that uses GraphQL Java
     * Write the GraphQL schema file
     * Write the GraphQL boilerplate code
 * Example requests
