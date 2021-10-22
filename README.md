@@ -7,53 +7,20 @@
 I've been sleeping on GraphQL for years but it has only exploded in popularity, feature richness and I think overall
 goodness. I need to learn it. This project is me doing that.
 
-This is an "echo" program that echoes a message back to you, but with some flair! Read the source code to learn more.
+## Standalone sub-projects
 
-## Instructions
+This repository illustrates different concepts, patterns and examples via standalone sub-projects. Each sub-project is
+completely independent of the others and do not depend on the root project. This _standalone sub-project constraint_
+forces the sub-projects to be complete and maximizes the reader's chances of successfully running, understanding, and
+re-using the code.
 
-Follow these instructions to build and run the app:
+The sub-projects include:
 
-1. Use Java 17
-2. Build the app:
-    * `./gradlew installDist`
-3. Build and run the app:
-    * ```
-      build/install/graphql-playground/bin/graphql-playground ' 
-      {
-        echo(message: "hello world!", echoFlavor: LOUD)
-      }'
-      ```
-    * You should notice that the "hello world!" message got echoed back in a loud way!
-4. Alias the build and run commands for happier development:
-    * `alias go="./gradlew installDist && build/install/graphql-playground/bin/graphql-playground"`
-    * For example, try the following command to build and run the program in one short step.
-    * ```
-      go ' 
-      {
-        echo(message: "hello world!", echoFlavor: LOUD)
-      }'
-      ```
-    * Next, try this.  
-    * ```
-      go '
-      {
-      echo(message: "anyone there?", echoFlavor: EXTRA)
-      }'
-      ```    
+### `sdl/`
 
-## TODO
+A simple Java program that uses GraphQL to echo a message back to the user. The schema is defined in an SDL file.
 
-* DONE Write a simple GraphQL Java program that uses GraphQL Java
-    * Write the GraphQL schema file
-    * Write the GraphQL boilerplate code
-* DONE Example requests
-    * This is an illustrative program that should be invoked from the command line. Make some example GraphQL requests
-      by passing them as string arguments to the program.
-
-## Notes
-
-While GraphQL is usually implemented in a web services context, there's no stopping you from using it another context
-like a CLI or a desktop application.
+See the README in [sdl/](sdl/).
 
 ## Reference
 
