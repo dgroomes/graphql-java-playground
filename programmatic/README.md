@@ -1,7 +1,5 @@
 # programmatic
 
-NOT YET FULLY IMPLEMENTED
-
 A simple GraphQL program where the schema is defined programmatically in Java code.
 
 ## Instructions
@@ -49,6 +47,6 @@ export JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*
 ## TODO
 
 * DONE Create a data fetcher that gets the local time of the request time zone. Support a few time zones.
-* Replace the SDL schema file with a programmatic definition.
+* DONE Replace the SDL schema file with a programmatic definition.
 * Is it possible to list all known IANA timezones in Java? If so, then do that and then programmaticaly define the
   GraphQL TimeZone enum.

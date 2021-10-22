@@ -1,15 +1,16 @@
 package dgroomes;
 
 import graphql.GraphQL;
-import graphql.schema.idl.NaturalEnumValuesProvider;
-import graphql.schema.idl.SchemaGenerator;
-import graphql.schema.idl.SchemaParser;
+import graphql.Scalars;
+import graphql.schema.GraphQLEnumType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-
-import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
+import static graphql.schema.GraphQLArgument.newArgument;
+import static graphql.schema.GraphQLCodeRegistry.newCodeRegistry;
+import static graphql.schema.GraphQLFieldDefinition.newFieldDefinition;
+import static graphql.schema.GraphQLObjectType.newObject;
+import static graphql.schema.GraphQLSchema.newSchema;
 
 public class LocalTimeGraphql {
 
@@ -23,19 +24,34 @@ public class LocalTimeGraphql {
 
         var graphqlQuery = args[0];
 
-        var schemaParser = new SchemaParser();
-        var typeDefinitionRegistry = schemaParser.parse(new File("schema.graphqls"));
-
-        var runtimeWiring = newRuntimeWiring()
-                .type("Query", builder -> builder.dataFetcher("localTime", new LocalTimeDataFetcher()))
-                .type("TimeZone", builder -> builder.enumValues(new NaturalEnumValuesProvider<>(TimeZone.class)))
+        // Build the schema
+        var schemaBuilder = newSchema();
+        var timeZoneEnum = GraphQLEnumType.newEnum()
+                .name("TimeZone")
+                .value("AMERICA_CHICAGO", TimeZone.AMERICA_CHICAGO)
+                .value("EUROPE_LONDON", TimeZone.EUROPE_LONDON)
+                .value("ASIA_JAKARTA", TimeZone.ASIA_JAKARTA)
                 .build();
+        var timeZoneField = newFieldDefinition()
+                .name("localTime")
+                .type(Scalars.GraphQLString)
+                .argument(newArgument()
+                        .name("timezone")
+                        .type(timeZoneEnum))
+                .build();
+        var query = newObject()
+                .name("Query")
+                .field(timeZoneField)
+                .build();
+        schemaBuilder.query(query);
+        schemaBuilder.codeRegistry(newCodeRegistry()
+                .dataFetcher(query, timeZoneField, new LocalTimeDataFetcher())
+                .build());
+        var graphQLSchema = schemaBuilder.build();
 
-        var schemaGenerator = new SchemaGenerator();
-        var graphQLSchema = schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
-
-        var build = GraphQL.newGraphQL(graphQLSchema).build();
-        var executionResult = build.execute(graphqlQuery);
+        // Execute the query
+        var graphQL = GraphQL.newGraphQL(graphQLSchema).build();
+        var executionResult = graphQL.execute(graphqlQuery);
 
         log.info(executionResult.getData().toString());
     }
