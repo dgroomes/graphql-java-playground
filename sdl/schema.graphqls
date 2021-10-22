@@ -5,5 +5,4 @@ type Query {
 enum EchoFlavor {
     NORMAL
     LOUD
-    EXTRA
 }
