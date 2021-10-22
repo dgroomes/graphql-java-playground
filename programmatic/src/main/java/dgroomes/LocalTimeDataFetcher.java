@@ -27,15 +27,8 @@ public class LocalTimeDataFetcher implements DataFetcher<String> {
 
     @Override
     public String get(DataFetchingEnvironment env) {
-        TimeZone timeZoneArg = getNonNullArg(env, "timezone");
-
-        var descriptor = switch (timeZoneArg) {
-            case AMERICA_CHICAGO -> "America/Chicago";
-            case EUROPE_LONDON -> "Europe/London";
-            case ASIA_JAKARTA -> "Asia/Jakarta";
-        };
-
-        var zoneId = ZoneId.of(descriptor);
+        String timeZoneArg = getNonNullArg(env, "timezone");
+        var zoneId = ZoneId.of(timeZoneArg);
         var localDateTime = LocalDateTime.now(zoneId);
         return HOUR_MINUTE_FORMATTER.format(localDateTime);
     }
