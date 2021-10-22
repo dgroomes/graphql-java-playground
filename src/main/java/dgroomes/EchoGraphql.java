@@ -1,6 +1,7 @@
 package dgroomes;
 
 import graphql.GraphQL;
+import graphql.schema.idl.NaturalEnumValuesProvider;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import org.slf4j.Logger;
@@ -10,9 +11,9 @@ import java.io.File;
 
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
-public class App {
+public class EchoGraphql {
 
-    private static final Logger log = LoggerFactory.getLogger(App.class);
+    private static final Logger log = LoggerFactory.getLogger(EchoGraphql.class);
 
     public static void main(String[] args) {
         log.info("Received the following arguments: {}", String.join(", ", args));
@@ -30,6 +31,7 @@ public class App {
 
         var runtimeWiring = newRuntimeWiring()
                 .type("Query", builder -> builder.dataFetcher("echo", new EchoDataFetcher()))
+                .type("EchoFlavor", builder -> builder.enumValues(new NaturalEnumValuesProvider<>(EchoFlavor.class)))
                 .build();
 
         var schemaGenerator = new SchemaGenerator();

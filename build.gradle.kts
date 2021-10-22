@@ -17,5 +17,5 @@ dependencies {
 }
 
 application {
-    mainClass.set("dgroomes.App")
+    mainClass.set("dgroomes.EchoGraphql")
 }
