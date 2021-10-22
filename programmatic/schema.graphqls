@@ -1,0 +1,9 @@
+type Query {
+    localTime(timezone: TimeZone): String
+}
+
+enum TimeZone {
+    AMERICA_CHICAGO
+    EUROPE_LONDON
+    ASIA_JAKARTA
+}
