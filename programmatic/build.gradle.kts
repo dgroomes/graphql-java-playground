@@ -6,6 +6,12 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 val slf4jVersion = "1.7.32" // releases: http://www.slf4j.org/news.html
 val graphqlJavaVersion = "17.3" // releases: https://github.com/graphql-java/graphql-java/releases
 

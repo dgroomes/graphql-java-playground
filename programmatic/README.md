@@ -34,16 +34,6 @@ Follow these instructions to build and run the app:
       }'
       ```
 
-## Notes
-
-For some reason, my Intellij is failing to deal with this project and can't run either the 'sdl' or the 'programmatic'
-sub-projects using an Intellij run configuration. So I have to run it from the commandline. As such, if I want to debug,
-I also need to configure the debug params from the commandline. It requires the following environment variable:
-
-```shell
-export JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005
-```
-
 ## TODO
 
 * DONE Create a data fetcher that gets the local time of the request time zone. Support a few time zones.

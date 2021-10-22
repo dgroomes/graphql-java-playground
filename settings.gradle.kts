@@ -22,5 +22,5 @@ rootProject.name = "graphql-playground"
 // Gradle "included builds". See https://docs.gradle.org/current/userguide/composite_builds.html. Now, when someone
 // clones this repo and opens it in Intellij, all the sub-projects are automatically identified by Intellij and indexed.
 // You get code completion and project navigation out-of-the-box. Pretty slick!
-include("sdl")
-include("programmatic")
+includeBuild("sdl")
+includeBuild("programmatic")
