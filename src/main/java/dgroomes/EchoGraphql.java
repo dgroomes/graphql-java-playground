@@ -11,20 +11,20 @@ import java.io.File;
 
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
+/**
+ * A toy Java program that uses GraphQL to echo a message back to the user.
+ */
 public class EchoGraphql {
 
     private static final Logger log = LoggerFactory.getLogger(EchoGraphql.class);
 
     public static void main(String[] args) {
-        log.info("Received the following arguments: {}", String.join(", ", args));
-
-        if (args.length != 2) {
-            log.error("Expected exactly two arguments but found {}", args.length);
+        if (args.length != 1) {
+            log.error("Expected exactly one argument but found {}", args.length);
             System.exit(1);
         }
 
-        var message = args[0];
-        var echoFlavor = args[1];
+        var graphqlQuery = args[0];
 
         var schemaParser = new SchemaParser();
         var typeDefinitionRegistry = schemaParser.parse(new File("schema.graphqls"));
@@ -38,11 +38,7 @@ public class EchoGraphql {
         var graphQLSchema = schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
 
         var build = GraphQL.newGraphQL(graphQLSchema).build();
-        var executionResult = build.execute("""
-                {
-                    echo(message: "%s", echoFlavor: %s)
-                }
-                """.formatted(message, echoFlavor));
+        var executionResult = build.execute(graphqlQuery);
 
         log.info(executionResult.getData().toString());
     }

@@ -17,21 +17,38 @@ Follow these instructions to build and run the app:
 2. Build the app:
     * `./gradlew installDist`
 3. Build and run the app:
-    * `build/install/graphql-playground/bin/graphql-playground "hello world!" LOUD`
-    * You should notice that the "hello world!" message got echoed back
+    * ```
+      build/install/graphql-playground/bin/graphql-playground ' 
+      {
+        echo(message: "hello world!", echoFlavor: LOUD)
+      }'
+      ```
+    * You should notice that the "hello world!" message got echoed back in a loud way!
 4. Alias the build and run commands for happier development:
-     * `alias go="./gradlew installDist && build/install/graphql-playground/bin/graphql-playground"`
-     * For example, try the following command to build and run the program in one short step.
-     * `go "hi there!" LOUD`
+    * `alias go="./gradlew installDist && build/install/graphql-playground/bin/graphql-playground"`
+    * For example, try the following command to build and run the program in one short step.
+    * ```
+      go ' 
+      {
+        echo(message: "hello world!", echoFlavor: LOUD)
+      }'
+      ```
+    * Next, try this.  
+    * ```
+      go '
+      {
+      echo(message: "anyone there?", echoFlavor: EXTRA)
+      }'
+      ```    
 
 ## TODO
 
 * DONE Write a simple GraphQL Java program that uses GraphQL Java
     * Write the GraphQL schema file
     * Write the GraphQL boilerplate code
-* Example requests
+* DONE Example requests
     * This is an illustrative program that should be invoked from the command line. Make some example GraphQL requests
-      by passing them as string arguments to the program. 
+      by passing them as string arguments to the program.
 
 ## Notes
 
