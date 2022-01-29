@@ -22,6 +22,18 @@ A simple Java program that uses GraphQL to echo a message back to the user. The 
 
 See the README in [sdl/](sdl/).
 
+### `programmatic/`
+
+A simple GraphQL program where the schema is defined programmatically in Java code.
+
+See the README in [programmatic/](programmatic/).
+
+### `hybrid/`
+
+An intermediate GraphQL Java program where the schema is defined by a hybrid of the SDL file and programmatically in Java code.
+
+See the README in [hybrid/](hybrid/).
+
 ## Reference
 
 * [GitHub repo: "graphql-java"](https://github.com/graphql-java/graphql-java)
