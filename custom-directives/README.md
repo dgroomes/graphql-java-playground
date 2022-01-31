@@ -1,7 +1,5 @@
 # custom-directives
 
-NOT YET FULLY IMPLEMENTED
-
 A GraphQL Java program that defines custom directives.
 
 ## Description
@@ -53,3 +51,17 @@ Follow these instructions to build and run the app:
         forestAnimals(count: 3)
       }'
       ```    
+
+
+Tip: to start the program in Java's debug mode, set the following environment variable:
+* `export CUSTOM_DIRECTIVES_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
+
+## WishList
+
+General clean-ups, TODOs and things I wish to implement for this project:
+
+* Genericize the implementation of `@gp_uppercase`. Can it be done somewhere else in the GraphQL Java machinery? I
+  suppose it could be done in a base class that extends DataFetchers, but that's not great. It could be done in GraphQL's
+  instrumentation layer, but that's quite low-level, and designed for metrics. Is there somewhere else? I can't find
+  anything in the GraphQL Java docs for query directives, only [schema directives](https://www.graphql-java.com/documentation/sdl-directives).
+  So maybe this isn't supported in a "paved road" way, but this library is so extensible I think there's a way.
