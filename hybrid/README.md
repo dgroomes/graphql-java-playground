@@ -1,7 +1,6 @@
 # hybrid
 
-An intermediate GraphQL Java program where the schema is defined by a hybrid of the SDL file and programmatically in
-Java code.
+An intermediate GraphQL Java program where the schema is defined by a hybrid of the SDL file and programmatically in Java code.
 
 ## Instructions
 

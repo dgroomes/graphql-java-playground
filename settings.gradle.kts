@@ -24,3 +24,4 @@ rootProject.name = "graphql-playground"
 // You get code completion and project navigation out-of-the-box. Pretty slick!
 includeBuild("sdl")
 includeBuild("programmatic")
+includeBuild("hybrid")

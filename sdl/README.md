@@ -1,6 +1,6 @@
 # sdl
 
-A GraphQL Java program where the schema is defined in a Schema Definition Language (SDL) file.
+A simple GraphQL Java program where the schema is defined in a Schema Definition Language (SDL) file.
 
 ## Description
 

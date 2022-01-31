@@ -18,7 +18,7 @@ The sub-projects include:
 
 ### `sdl/`
 
-A simple Java program that uses GraphQL to echo a message back to the user. The schema is defined in an SDL file.
+A simple GraphQL Java program where the schema is defined in a Schema Definition Language (SDL) file.
 
 See the README in [sdl/](sdl/).
 
