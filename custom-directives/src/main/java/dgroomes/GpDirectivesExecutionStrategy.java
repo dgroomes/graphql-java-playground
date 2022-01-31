@@ -1,5 +1,6 @@
 package dgroomes;
 
+import dgroomes.graphql.ExecutionResultGpImpl;
 import graphql.ExecutionResult;
 import graphql.execution.AsyncExecutionStrategy;
 import graphql.execution.ExecutionContext;

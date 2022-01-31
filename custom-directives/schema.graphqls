@@ -1,5 +1,10 @@
 type Query {
-    forestAnimals(count: Int): [String]
+    forest(animalsCount: Int): Forest
+}
+
+type Forest {
+    type: String
+    animals: [String]
 }
 
 directive @gp_uppercase on FIELD

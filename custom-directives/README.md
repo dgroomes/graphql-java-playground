@@ -27,13 +27,16 @@ Follow these instructions to build and run the app:
     * ```bash
       build/install/custom-directives/bin/custom-directives ' 
       {
-        forestAnimals(count: 3) @gp_uppercase
+        forest(animalsCount: 3) {
+          type
+          animals @gp_uppercase
+        }
       }'
       ```
     * You should notice that a list of three forest animals was printed to the screen and they are all upper-cased! It
       should look something like the following.
     * ```text
-      [main] INFO dgroomes.GraphqlUtil - {forestAnimals=[DEER, BEAR, OWL]}
+      16:08:54 [main] INFO dgroomes.graphql.GraphqlUtil - {forest={type=Coniferous, animals=[DEER, BEAR, OWL]}}
       ```
 4. Alias the build and run commands for happier development:
     * `alias go="./gradlew installDist && build/install/custom-directives/bin/custom-directives"`
@@ -41,14 +44,20 @@ Follow these instructions to build and run the app:
     * ```bash
       go ' 
       {
-        forestAnimals(count: 4) @gp_uppercase
+        forest(animalsCount: 4) {
+          type
+          animals @gp_uppercase
+        }
       }'
       ```
     * Next, try omitting the `@gp_uppercase` directive and see what happens.  
     * ```bash
       go ' 
       {
-        forestAnimals(count: 3)
+        forest(animalsCount: 3) {
+          type
+          animals
+        }
       }'
       ```    
 

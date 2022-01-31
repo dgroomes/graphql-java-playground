@@ -1,5 +1,6 @@
 package dgroomes;
 
+import dgroomes.graphql.GraphqlUtil;
 import graphql.GraphQL;
 import graphql.execution.ExecutionStrategy;
 import graphql.schema.GraphQLDirective;
@@ -19,7 +20,7 @@ import static graphql.introspection.Introspection.DirectiveLocation.FIELD;
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
 /**
- * A toy Java program that uses GraphQL to list some forest animals.
+ * A toy Java program that uses GraphQL to print a forest and some of its animals.
  */
 public class CustomDirectives {
 
@@ -37,7 +38,7 @@ public class CustomDirectives {
         var typeDefinitionRegistry = schemaParser.parse(new File("schema.graphqls"));
 
         var runtimeWiring = newRuntimeWiring()
-                .type("Query", builder -> builder.dataFetcher("forestAnimals", new ForestAnimalsDataFetcher()))
+                .type("Query", builder -> builder.dataFetcher("forest", new ForestDataFetcher()))
                 .build();
 
         var schemaGenerator = new SchemaGenerator();
