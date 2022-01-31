@@ -1,8 +1,10 @@
 # sdl
 
-A simple Java program that uses GraphQL to echo a message back to the user. The schema is defined in an SDL file.
+A GraphQL Java program where the schema is defined in a Schema Definition Language (SDL) file.
 
 ## Description
+
+**NOTE**: This was developed on macOS and for my own personal use.
 
 This is an "echo" program that echoes a message back to you, but with some flair! Read the source code to learn more.
 
@@ -14,7 +16,7 @@ Follow these instructions to build and run the app:
 2. Build the app:
     * `./gradlew installDist`
 3. Build and run the app:
-    * ```
+    * ```bash
       build/install/sdl/bin/sdl ' 
       {
         echo(message: "hello world!", echoFlavor: LOUD)
@@ -24,17 +26,17 @@ Follow these instructions to build and run the app:
 4. Alias the build and run commands for happier development:
     * `alias go="./gradlew installDist && build/install/sdl/bin/sdl"`
     * For example, try the following command to build and run the program in one short step.
-    * ```
+    * ```bash
       go ' 
       {
         echo(message: "hello world!", echoFlavor: LOUD)
       }'
       ```
-    * Next, try this.  
-    * ```
+    * Next, try the `NORMAL` echo flavor.  
+    * ```bash
       go '
       {
-      echo(message: "anyone there?", echoFlavor: EXTRA)
+        echo(message: "anyone there?", echoFlavor: NORMAL)
       }'
       ```    
 

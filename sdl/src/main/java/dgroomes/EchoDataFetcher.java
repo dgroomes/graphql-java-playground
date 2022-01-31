@@ -3,7 +3,7 @@ package dgroomes;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 
-import static dgroomes.Util.getNonNullArg;
+import static dgroomes.GraphqlUtil.getNonNullArg;
 
 public class EchoDataFetcher implements DataFetcher<String> {
 
@@ -15,7 +15,6 @@ public class EchoDataFetcher implements DataFetcher<String> {
         return switch (echoFlavor) {
             case NORMAL -> message;
             case LOUD -> message.toUpperCase();
-            case EXTRA -> (message + "...").repeat(3);
         };
     }
 }
