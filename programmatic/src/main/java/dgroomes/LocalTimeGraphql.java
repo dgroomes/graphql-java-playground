@@ -55,7 +55,7 @@ public class LocalTimeGraphql {
         var graphQL = GraphQL.newGraphQL(graphQLSchema).build();
         var executionResult = graphQL.execute(graphqlQuery);
 
-        log.info(executionResult.getData().toString());
+        GraphqlUtil.printResult(executionResult);
     }
 
     /**
