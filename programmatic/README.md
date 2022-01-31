@@ -10,7 +10,7 @@ Follow these instructions to build and run the app:
 2. Build the app:
     * `./gradlew installDist`
 3. Build and run the app:
-    * ```
+    * ```bash
       build/install/programmatic/bin/programmatic ' 
       {
         localTime(timezone: AMERICA_CHICAGO)
@@ -20,17 +20,17 @@ Follow these instructions to build and run the app:
 4. Alias the build and run commands for happier development:
     * `alias go="./gradlew installDist && build/install/programmatic/bin/programmatic"`
     * For example, try the following command to build and run the program in one short step.
-    * ```
+    * ```bash
       go ' 
       {
         localTime(timezone: AMERICA_CHICAGO)
       }'
       ```
-    * Next, try this.
-    * ```
+    * Next, try a different timezone.
+    * ```bash
       go '
       {
-        localTime(timezone: EUR
+        localTime(timezone: EUROPE_PARIS)
       }'
       ```
 

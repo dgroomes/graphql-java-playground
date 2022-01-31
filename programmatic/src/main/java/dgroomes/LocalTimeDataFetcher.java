@@ -9,8 +9,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
-import static dgroomes.Util.getNonNullArg;
-import static java.time.temporal.ChronoField.*;
+import static dgroomes.GraphqlUtil.getNonNullArg;
+import static java.time.temporal.ChronoField.CLOCK_HOUR_OF_AMPM;
+import static java.time.temporal.ChronoField.MINUTE_OF_HOUR;
 
 /**
  * Fetch the current time of day for the given time zone.
