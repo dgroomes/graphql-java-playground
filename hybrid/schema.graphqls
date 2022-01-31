@@ -1,0 +1,15 @@
+type Query {
+    javaInfo(component: JavaComponent): String
+}
+
+enum JavaComponent {
+
+    # What is the version of Java? E.g. 8, 11, 17, etc.
+    VERSION
+
+    # Is the program running in the traditional classpath mode or using the module path?
+    RUNTIME_MODE
+
+    # More enum values are defined programmatically at runtime in the Java code! Read the code. This is a pretty cool
+    # feature of GraphQL (and graphql-java).
+}
