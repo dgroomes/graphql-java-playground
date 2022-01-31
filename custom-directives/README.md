@@ -85,3 +85,4 @@ General clean-ups, TODOs and things I wish to implement for this project:
     protected methods `graphql.execution.ExecutionStrategy.completeValue` and `graphql.execution.ExecutionStrategy.completeValueForList`
     which return a `graphql.execution.FieldValueInfo` instance which is marked as `@PublicApi`. The combination of `protected`
     methods and a public API class are an indicator that this is a blessed extension point in the framework.
+* Create a sort directive
