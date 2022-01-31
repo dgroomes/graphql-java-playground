@@ -1,3 +1,5 @@
 type Query {
     forestAnimals(count: Int): [String]
 }
+
+directive @gp_uppercase on FIELD
