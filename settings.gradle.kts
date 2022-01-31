@@ -25,3 +25,4 @@ rootProject.name = "graphql-playground"
 includeBuild("sdl")
 includeBuild("programmatic")
 includeBuild("hybrid")
+includeBuild("custom-directives")
