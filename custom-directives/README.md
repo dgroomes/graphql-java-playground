@@ -1,6 +1,6 @@
 # custom-directives
 
-A GraphQL Java program that defines custom directives.
+An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` using a bespoke ExecutionStrategy.
 
 ## Description
 
@@ -60,8 +60,19 @@ Tip: to start the program in Java's debug mode, set the following environment va
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Genericize the implementation of `@gp_uppercase`. Can it be done somewhere else in the GraphQL Java machinery? I
+* DONE Genericize the implementation of `@gp_uppercase`. Can it be done somewhere else in the GraphQL Java machinery? I
   suppose it could be done in a base class that extends DataFetchers, but that's not great. It could be done in GraphQL's
   instrumentation layer, but that's quite low-level, and designed for metrics. Is there somewhere else? I can't find
   anything in the GraphQL Java docs for query directives, only [schema directives](https://www.graphql-java.com/documentation/sdl-directives).
   So maybe this isn't supported in a "paved road" way, but this library is so extensible I think there's a way.
+  * Update: I think instrumentation is the way to go. The type hierarchy of GraphQL's "execution machinery" is thick and
+    complicated. It is a true framework. I'll say it again, GraphQL Java is a framework, not a library! Looking at the
+    code in the classes `graphql.GraphQL`, `graphql.execution.AsyncExecutionStrategy`, and `graphql.execution.Execution`
+    make me realize the framework qualities of GraphQL Java. That said, I think it's really well done and I could
+    probably digest and understand the codebase without too much of a hassle, but still, it is circuitous so I'll pass
+    for now. Instead I'll focus on the public interfaces, like `graphql.execution.instrumentation.Instrumentation` which
+    the authors of the framework intend for users to use directly.
+  * Update 2: Now I've changed my mind again and think extending the `ExecutionStrategy` is the right move. It has
+    protected methods `graphql.execution.ExecutionStrategy.completeValue` and `graphql.execution.ExecutionStrategy.completeValueForList`
+    which return a `graphql.execution.FieldValueInfo` instance which is marked as `@PublicApi`. The combination of `protected`
+    methods and a public API class are an indicator that this is a blessed extension point in the framework.

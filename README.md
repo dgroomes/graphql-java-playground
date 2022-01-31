@@ -34,6 +34,12 @@ An intermediate GraphQL Java program where the schema is defined by a hybrid of 
 
 See the README in [hybrid/](hybrid/).
 
+### `custom-directives/`
+
+An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` using a bespoke ExecutionStrategy.
+
+See the README in [custom-directives/](custom-directives/).
+
 ## Reference
 
 * [GitHub repo: "graphql-java"](https://github.com/graphql-java/graphql-java)

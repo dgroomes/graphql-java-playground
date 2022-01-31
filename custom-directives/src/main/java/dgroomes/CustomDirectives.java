@@ -1,6 +1,7 @@
 package dgroomes;
 
 import graphql.GraphQL;
+import graphql.execution.ExecutionStrategy;
 import graphql.schema.GraphQLDirective;
 import graphql.schema.GraphQLSchemaElement;
 import graphql.schema.GraphQLTypeVisitorStub;
@@ -57,7 +58,12 @@ public class CustomDirectives {
             }
         });
 
-        var build = GraphQL.newGraphQL(graphQLSchema).build();
+        // Create a custom execution strategy that incorporates some custom directives like "@gp_uppercase"
+        ExecutionStrategy queryExecutionStrategy = new GpDirectivesExecutionStrategy();
+
+        var build = GraphQL.newGraphQL(graphQLSchema)
+                .queryExecutionStrategy(queryExecutionStrategy)
+                .build();
         var executionResult = build.execute(graphqlQuery);
 
         GraphqlUtil.printResult(executionResult);
