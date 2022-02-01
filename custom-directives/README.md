@@ -29,16 +29,16 @@ Follow these instructions to build and run the app:
     * ```bash
       build/install/custom-directives/bin/custom-directives ' 
       {
-        forest(animalsCount: 3) {
+        woodland(type: TROPICAL) {
           type
           animals @gp_uppercase
         }
       }'
       ```
-    * You should notice that a list of three forest animals was printed to the screen and they are all upper-cased! It
-      should look something like the following.
+    * You should notice that a list of three tropical rainforest animals was printed to the screen and they are all
+      upper-cased! It should look something like the following.
     * ```text
-      16:08:54 [main] INFO dgroomes.graphql.GraphqlUtil - {forest={type=Coniferous, animals=[DEER, BEAR, OWL]}}
+      23:35:12 [main] INFO dgroomes.graphql.GraphqlUtil - {woodland={type=TROPICAL, animals=[JAGUAR, TOUCAN, RED-EYED TREE FROG]}}
       ```
 4. Alias the build and run commands for happier development:
     * `alias go="./gradlew installDist && build/install/custom-directives/bin/custom-directives"`
@@ -46,7 +46,7 @@ Follow these instructions to build and run the app:
     * ```bash
       go ' 
       {
-        forest(animalsCount: 4) {
+        woodland(type: TROPICAL) {
           type
           animals @gp_sort
         }
@@ -56,7 +56,7 @@ Follow these instructions to build and run the app:
     * ```bash
       go ' 
       {
-        forest(animalsCount: 4) {
+        woodland(type: DESERT) {
           animals @gp_sort(order: DESC)
         }
       }'
@@ -87,8 +87,9 @@ General clean-ups, TODOs and things I wish to implement for this project:
     methods and a public API class are an indicator that this is a blessed extension point in the framework.
 * DONE Create a sort directive
 * Create a limit directive (and remove the `animalCount` param)
-* Make more forests sample data
+* DONE Make more forests sample data. Actually, expand it to all [woodlands](https://en.wikipedia.org/wiki/Woodland)?
 * Split out into multiple sub-projects: 1) graphql-util 2) gp-directives 3) forests, 4) cli
+* Use a secondary schema file for the gp-directives, separate from the woodlands/cli schema? Is this possible?
 
 ## Reference
 

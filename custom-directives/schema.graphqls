@@ -1,10 +1,16 @@
 type Query {
-    forest(animalsCount: Int): Forest
+    woodland(type: WoodlandType): Woodland
 }
 
-type Forest {
-    type: String
+type Woodland {
+    type: WoodlandType
     animals: [String]
+}
+
+enum WoodlandType {
+    TROPICAL
+    TEMPERATE
+    DESERT
 }
 
 "Directs the executor to uppercase strings."
