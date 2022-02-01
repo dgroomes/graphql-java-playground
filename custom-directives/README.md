@@ -1,6 +1,6 @@
 # custom-directives
 
-An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` using a bespoke ExecutionStrategy.
+An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using a bespoke ExecutionStrategy.
 
 ## Description
 
@@ -15,6 +15,8 @@ Custom directives can be defined for use in the schema, in queries, or both! In 
 can be used in queries for upper-casing strings: `@gp_uppercase`. Per convention, the directive is given a custom prefix
 ending in `_` so that users can distinguish it from standard built-in directives like `@skip` and `@include`. In this
 case, `gp` is the acronym of `graphql-playground.`
+
+The project also defines a `@gp_sort` directive for sorting lists.
 
 ## Instructions
 
@@ -46,21 +48,19 @@ Follow these instructions to build and run the app:
       {
         forest(animalsCount: 4) {
           type
-          animals @gp_uppercase
+          animals @gp_sort
         }
       }'
       ```
-    * Next, try omitting the `@gp_uppercase` directive and see what happens.  
+    * Next, experiment with combinations of the custom directives.
     * ```bash
       go ' 
       {
-        forest(animalsCount: 3) {
-          type
-          animals
+        forest(animalsCount: 4) {
+          animals @gp_sort(order: DESC)
         }
       }'
-      ```    
-
+      ```
 
 Tip: to start the program in Java's debug mode, set the following environment variable:
 * `export CUSTOM_DIRECTIVES_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
@@ -85,4 +85,4 @@ General clean-ups, TODOs and things I wish to implement for this project:
     protected methods `graphql.execution.ExecutionStrategy.completeValue` and `graphql.execution.ExecutionStrategy.completeValueForList`
     which return a `graphql.execution.FieldValueInfo` instance which is marked as `@PublicApi`. The combination of `protected`
     methods and a public API class are an indicator that this is a blessed extension point in the framework.
-* Create a sort directive
+* DONE Create a sort directive

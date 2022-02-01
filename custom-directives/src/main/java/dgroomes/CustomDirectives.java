@@ -3,20 +3,14 @@ package dgroomes;
 import dgroomes.graphql.GraphqlUtil;
 import graphql.GraphQL;
 import graphql.execution.ExecutionStrategy;
-import graphql.schema.GraphQLDirective;
-import graphql.schema.GraphQLSchemaElement;
-import graphql.schema.GraphQLTypeVisitorStub;
-import graphql.schema.SchemaTransformer;
+import graphql.schema.idl.NaturalEnumValuesProvider;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
-import graphql.util.TraversalControl;
-import graphql.util.TraverserContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
-import static graphql.introspection.Introspection.DirectiveLocation.FIELD;
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
 /**
@@ -39,25 +33,11 @@ public class CustomDirectives {
 
         var runtimeWiring = newRuntimeWiring()
                 .type("Query", builder -> builder.dataFetcher("forest", new ForestDataFetcher()))
+                .type("SortOrder", builder -> builder.enumValues(new NaturalEnumValuesProvider<>(SortOrder.class)))
                 .build();
 
         var schemaGenerator = new SchemaGenerator();
         var graphQLSchema = schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
-
-        // Further transform the schema after it was generated from the SDL file ("schema.graphqls"). Specifically,
-        // add the "@gp_uppercase" custom directive.
-        graphQLSchema = SchemaTransformer.transformSchema(graphQLSchema, new GraphQLTypeVisitorStub() {
-
-            @Override
-            public TraversalControl visitGraphQLDirective(GraphQLDirective node, TraverserContext<GraphQLSchemaElement> context) {
-                String nodeName = node.getName();
-                log.debug("Visiting directive '{}'", nodeName);
-                if ("gp_uppercase".equals(nodeName)) {
-                    return changeNode(context, uppercaseDirective());
-                }
-                return super.visitGraphQLDirective(node, context);
-            }
-        });
 
         // Create a custom execution strategy that incorporates some custom directives like "@gp_uppercase"
         ExecutionStrategy queryExecutionStrategy = new GpDirectivesExecutionStrategy();
@@ -68,13 +48,5 @@ public class CustomDirectives {
         var executionResult = build.execute(graphqlQuery);
 
         GraphqlUtil.printResult(executionResult);
-    }
-
-    public static GraphQLDirective uppercaseDirective() {
-        return GraphQLDirective.newDirective()
-                .name("gp_uppercase")
-                .description("WIP Directs the executor to uppercase strings.")
-                .validLocations(FIELD)
-                .build();
     }
 }

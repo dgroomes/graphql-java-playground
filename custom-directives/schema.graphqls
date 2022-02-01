@@ -7,4 +7,14 @@ type Forest {
     animals: [String]
 }
 
+"Directs the executor to uppercase strings."
 directive @gp_uppercase on FIELD
+
+"Directs the executor to sort the elements of a list."
+directive @gp_sort(order: SortOrder) on FIELD
+
+"The sort order. The elements will be sorted in the given order: ascending or descending"
+enum SortOrder {
+    ASC
+    DESC
+}

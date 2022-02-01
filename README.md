@@ -36,7 +36,7 @@ See the README in [hybrid/](hybrid/).
 
 ### `custom-directives/`
 
-An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` using a bespoke ExecutionStrategy.
+An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using a bespoke ExecutionStrategy.
 
 See the README in [custom-directives/](custom-directives/).
 
