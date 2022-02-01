@@ -1,6 +1,8 @@
-package dgroomes;
+package dgroomes.cli;
 
+import dgroomes.graphql.GpDirectivesExecutionStrategy;
 import dgroomes.graphql.GraphqlUtil;
+import dgroomes.graphql.SortOrder;
 import dgroomes.woodlands.WoodlandType;
 import graphql.GraphQL;
 import graphql.execution.ExecutionStrategy;
@@ -17,9 +19,9 @@ import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 /**
  * A toy Java program that uses GraphQL to fetch information about woodlands their animals.
  */
-public class CustomDirectives {
+public class Cli {
 
-    private static final Logger log = LoggerFactory.getLogger(CustomDirectives.class);
+    private static final Logger log = LoggerFactory.getLogger(Cli.class);
 
     public static void main(String[] args) {
         if (args.length != 1) {

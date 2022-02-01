@@ -24,10 +24,10 @@ Follow these instructions to build and run the app:
 
 1. Use Java 17
 2. Build the program distribution:
-    * `./gradlew installDist`
+    * `./gradlew :cli:installDist`
 3. Run the program:
     * ```bash
-      build/install/custom-directives/bin/custom-directives ' 
+      cli/build/install/cli/bin/cli ' 
       {
         woodland(type: TROPICAL) {
           type
@@ -41,7 +41,7 @@ Follow these instructions to build and run the app:
       23:35:12 [main] INFO dgroomes.graphql.GraphqlUtil - {woodland={type=TROPICAL, animals=[JAGUAR, TOUCAN, RED-EYED TREE FROG]}}
       ```
 4. Alias the build and run commands for happier development:
-    * `alias go="./gradlew installDist && build/install/custom-directives/bin/custom-directives"`
+    * `alias go="./gradlew :cl:installDist && cli/build/install/cli/bin/cli"`
     * For example, try the following command to build and run the program in one short step.
     * ```bash
       go ' 
@@ -88,8 +88,11 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * DONE Create a sort directive
 * Create a limit directive (and remove the `animalCount` param)
 * DONE Make more forests sample data. Actually, expand it to all [woodlands](https://en.wikipedia.org/wiki/Woodland)?
-* Split out into multiple sub-projects: 1) graphql-util 2) gp-directives 3) forests, 4) cli
+* DONE (I didn't separate graphql-util from gd-directivees. That would be useful if I fleshed out more machinery around the pattern but not sure that's worth it for this playground). Split out into multiple sub-projects: 1) graphql-util 2) gp-directives 3) forests, 4) cli
 * Use a secondary schema file for the gp-directives, separate from the woodlands/cli schema? Is this possible?
+* Make it a web project instead of a CLI project so that I can demo the usage from Insomnia. This makes for a great demo
+  because of Insomnia's built-in support for GraphQL. It fetches the schema and does auto-complete! Much more interesting
+  than a CLI (but the CLI is a good vehicle for basic demos).
 
 ## Reference
 

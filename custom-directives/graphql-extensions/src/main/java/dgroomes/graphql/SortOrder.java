@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.graphql;
 
 public enum SortOrder {
 
