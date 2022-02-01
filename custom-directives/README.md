@@ -86,3 +86,18 @@ General clean-ups, TODOs and things I wish to implement for this project:
     which return a `graphql.execution.FieldValueInfo` instance which is marked as `@PublicApi`. The combination of `protected`
     methods and a public API class are an indicator that this is a blessed extension point in the framework.
 * DONE Create a sort directive
+* Create a limit directive (and remove the `animalCount` param)
+* Make more forests sample data
+* Split out into multiple sub-projects: 1) graphql-util 2) gp-directives 3) forests, 4) cli
+
+## Reference
+
+* [graphql-java GitHub issue #1201](https://github.com/graphql-java/graphql-java/issues/1201)
+  * This GitHub issue contains relevant discussion about GraphQL Java's ability to implement directives for `FIELD`
+    targets and why that is different from implementing directives for `FIELD_DEFINITION` targets. The GitHub issue
+    discussion doesn't spell it out that clearly, but you should read if interested in GraphQL Java official advice for
+    implementing directives. GraphQL Java has a really nice way to define `FIELD_DEFINITION` directives, like the `@auth`
+    example in the docs. By contrast, the `graphql-playground/custom-directives` subproject shows how to define `FIELD`
+    directives which can be applied by end-users of the GraphQL API, where for example, they might want to uppercase
+    one field of dozens returned in the response. We don't know where the end-user will use the the `@gp_uppercase`
+    directive. 
