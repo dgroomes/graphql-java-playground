@@ -1,18 +1,3 @@
-type Query {
-    woodland(type: WoodlandType): Woodland
-}
-
-type Woodland {
-    type: WoodlandType
-    animals: [String]
-}
-
-enum WoodlandType {
-    TROPICAL
-    TEMPERATE
-    DESERT
-}
-
 "Directs the executor to uppercase strings."
 directive @gp_uppercase on FIELD
 

@@ -1,0 +1,14 @@
+type Query {
+    woodland(type: WoodlandType): Woodland
+}
+
+type Woodland {
+    type: WoodlandType
+    animals: [String]
+}
+
+enum WoodlandType {
+    TROPICAL
+    TEMPERATE
+    DESERT
+}

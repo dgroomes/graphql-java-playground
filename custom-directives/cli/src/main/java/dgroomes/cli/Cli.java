@@ -9,6 +9,7 @@ import graphql.execution.ExecutionStrategy;
 import graphql.schema.idl.NaturalEnumValuesProvider;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
+import graphql.schema.idl.TypeDefinitionRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +33,9 @@ public class Cli {
         var graphqlQuery = args[0];
 
         var schemaParser = new SchemaParser();
-        var typeDefinitionRegistry = schemaParser.parse(new File("schema.graphqls"));
+        var typeRegistry = new TypeDefinitionRegistry();
+        typeRegistry.merge(schemaParser.parse(new File("cli/cli.graphqls")));
+        typeRegistry.merge(schemaParser.parse(new File("graphql-extensions/extensions.graphqls")));
 
         var runtimeWiring = newRuntimeWiring()
                 .type("Query", builder -> builder.dataFetcher("woodland", new WoodlandDataFetcher()))
@@ -41,7 +44,7 @@ public class Cli {
                 .build();
 
         var schemaGenerator = new SchemaGenerator();
-        var graphQLSchema = schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
+        var graphQLSchema = schemaGenerator.makeExecutableSchema(typeRegistry, runtimeWiring);
 
         // Create a custom execution strategy that incorporates some custom directives like "@gp_uppercase"
         ExecutionStrategy queryExecutionStrategy = new GpDirectivesExecutionStrategy();

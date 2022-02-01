@@ -89,7 +89,8 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * Create a limit directive (and remove the `animalCount` param)
 * DONE Make more forests sample data. Actually, expand it to all [woodlands](https://en.wikipedia.org/wiki/Woodland)?
 * DONE (I didn't separate graphql-util from gd-directivees. That would be useful if I fleshed out more machinery around the pattern but not sure that's worth it for this playground). Split out into multiple sub-projects: 1) graphql-util 2) gp-directives 3) forests, 4) cli
-* Use a secondary schema file for the gp-directives, separate from the woodlands/cli schema? Is this possible?
+* DONE (that was nice and easy) Use a secondary schema file for the gp-directives, separate from the woodlands/cli schema? Is this possible?
+  * Update: reference the ["Modularizing the Schema SDL" section in the docs](https://www.graphql-java.com/documentation/schema)  
 * Make it a web project instead of a CLI project so that I can demo the usage from Insomnia. This makes for a great demo
   because of Insomnia's built-in support for GraphQL. It fetches the schema and does auto-complete! Much more interesting
   than a CLI (but the CLI is a good vehicle for basic demos).
