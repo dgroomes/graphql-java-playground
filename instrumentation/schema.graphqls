@@ -1,0 +1,8 @@
+type Query {
+    stateOfH20: StateOfH20
+}
+
+type StateOfH20 {
+    description: String
+    nextState: StateOfH20
+}
