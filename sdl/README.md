@@ -42,10 +42,10 @@ Follow these instructions to build and run the app:
 
 ## TODO
 
-* DONE Write a simple GraphQL Java program that uses GraphQL Java
+* [x] DONE Write a simple GraphQL Java program that uses GraphQL Java
     * Write the GraphQL schema file
     * Write the GraphQL boilerplate code
-* DONE Example requests
+* [x] DONE Example requests
     * This is an illustrative program that should be invoked from the command line. Make some example GraphQL requests
       by passing them as string arguments to the program.
 

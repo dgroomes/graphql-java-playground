@@ -14,9 +14,9 @@ repositories {
     mavenCentral()
 }
 
-val slf4jVersion = "1.7.32" // SLF4J releases: http://www.slf4j.org/news.html
-val graphqlJavaVersion = "17.3" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-val classGraphVersion = "4.8.138" // ClassGraph releases: https://github.com/classgraph/classgraph/releases
+val slf4jVersion = "1.7.36" // SLF4J releases: http://www.slf4j.org/news.html
+val graphqlJavaVersion = "18.0" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+val classGraphVersion = "4.8.143" // ClassGraph releases: https://github.com/classgraph/classgraph/releases
 
 dependencies {
     constraints {

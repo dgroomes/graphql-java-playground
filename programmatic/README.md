@@ -36,7 +36,7 @@ Follow these instructions to build and run the app:
 
 ## TODO
 
-* DONE Create a data fetcher that gets the local time of the request time zone. Support a few time zones.
-* DONE Replace the SDL schema file with a programmatic definition.
-* DONE Is it possible to list all known IANA timezones in Java? If so, then do that and then programmaticaly define the
+* [x] DONE Create a data fetcher that gets the local time of the request time zone. Support a few time zones.
+* [x] DONE Replace the SDL schema file with a programmatic definition.
+* [x] DONE Is it possible to list all known IANA timezones in Java? If so, then do that and then programmaticaly define the
   GraphQL TimeZone enum.

@@ -1,6 +1,6 @@
 # graphql-playground
 
-📚 Learning and exploring _GraphQL_ and _GraphQL Java_
+📚 Learning and exploring GraphQL and _GraphQL Java_ <https://www.graphql-java.com/>.
 
 ## Description
 
@@ -39,6 +39,12 @@ See the README in [hybrid/](hybrid/).
 An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using a bespoke ExecutionStrategy.
 
 See the README in [custom-directives/](custom-directives/).
+
+### `instrumentation/`
+
+A GraphQL Java program that defines custom instrumentation code for logging purposes.
+
+See the README in [instrumentation/](instrumentation/).
 
 ## Reference
 
