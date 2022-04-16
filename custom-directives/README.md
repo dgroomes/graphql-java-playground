@@ -1,10 +1,9 @@
 # custom-directives
 
-An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using a bespoke ExecutionStrategy.
+An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using
+a bespoke ExecutionStrategy. It also uses a web server.
 
 ## Description
-
-**NOTE**: This was developed on macOS and for my own personal use.
 
 GraphQL has a neat feature called [_directives_](https://graphql.org/learn/queries/#directives). You should read the
 official docs to begin your learning journey with GraphQL directives. Don't be afraid to read the GraphQL specification
@@ -24,10 +23,12 @@ Follow these instructions to build and run the app:
 
 1. Use Java 17
 2. Build the program distribution:
-    * `./gradlew :cli:installDist`
-3. Run the program:
+    * `./gradlew :server:installDist`
+3. Run the GraphQL server:
+    * `./server/build/install/server/bin/server $PWD/server/schema.graphqls $PWD/graphql-extensions/extensions.graphqls`
+5. Make a query:
     * ```bash
-      cli/build/install/cli/bin/cli ' 
+      curl http://127.0.0.1:8080/graphql --header "Content-Type:application/graphql" --data ' 
       {
         woodland(type: TROPICAL) {
           type
@@ -37,29 +38,28 @@ Follow these instructions to build and run the app:
       ```
     * You should notice that a list of three tropical rainforest animals was printed to the screen and they are all
       upper-cased! It should look something like the following.
-    * ```text
-      23:35:12 [main] INFO dgroomes.graphql.GraphqlUtil - {woodland={type=TROPICAL, animals=[JAGUAR, TOUCAN, RED-EYED TREE FROG]}}
-      ```
-4. Alias the build and run commands for happier development:
-    * `alias go="./gradlew :cl:installDist && cli/build/install/cli/bin/cli"`
-    * For example, try the following command to build and run the program in one short step.
-    * ```bash
-      go ' 
+    * ```json
       {
-        woodland(type: TROPICAL) {
-          type
-          animals @gp_sort
+        "data" : {
+          "woodland" : {
+            "type" : "TROPICAL",
+            "animals" : [ "JAGUAR", "TOUCAN", "RED-EYED TREE FROG" ]
+          }
         }
-      }'
+      }
       ```
+6. Try making a request from [Insomnia](https://insomnia.rest/) for happier development:
+    * For example, try the following request that uses the `@gp_sort` directive:
+    * <img src="insomnia-screenshot.png" alt="insomnia-screenshot" width="500"/>
+    * Notice how Insomnia offers an auto-completion suggestion to complete `@gp_sort`. This makes it easy to write
+      queries! 
     * Next, experiment with combinations of the custom directives.
-    * ```bash
-      go ' 
+    * ```graphql
       {
         woodland(type: DESERT) {
           animals @gp_sort(order: DESC)
         }
-      }'
+      }
       ```
 
 Tip: to start the program in Java's debug mode, set the following environment variable:
@@ -91,9 +91,11 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * [x] DONE (I didn't separate graphql-util from gd-directivees. That would be useful if I fleshed out more machinery around the pattern but not sure that's worth it for this playground). Split out into multiple sub-projects: 1) graphql-util 2) gp-directives 3) forests, 4) cli
 * [x] DONE (that was nice and easy) Use a secondary schema file for the gp-directives, separate from the woodlands/cli schema? Is this possible?
   * Update: reference the ["Modularizing the Schema SDL" section in the docs](https://www.graphql-java.com/documentation/schema)  
-* Make it a web project instead of a CLI project so that I can demo the usage from Insomnia. This makes for a great demo
-  because of Insomnia's built-in support for GraphQL. It fetches the schema and does auto-complete! Much more interesting
-  than a CLI (but the CLI is a good vehicle for basic demos).
+* [x] DONE Make it a web project instead of a CLI project so that I can demo the usage from Insomnia. This makes for
+  a great demo because of Insomnia's built-in support for GraphQL. It fetches the schema and does auto-complete! Much
+  more interesting than a CLI (but the CLI is a good vehicle for basic demos).
+* [ ] Split out the GraphQL schema file and runtime wiring code into a new module named `graphql/`.
+
 
 ## Reference
 

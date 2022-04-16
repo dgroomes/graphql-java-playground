@@ -4,6 +4,8 @@
 
 ## Description
 
+**NOTE**: This project was developed on macOS. It is for my own personal use.
+
 I've been sleeping on GraphQL for years but it has only exploded in popularity, feature richness and I think overall
 goodness. I need to learn it. This project is me doing that.
 
@@ -36,7 +38,8 @@ See the README in [hybrid/](hybrid/).
 
 ### `custom-directives/`
 
-An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using a bespoke ExecutionStrategy.
+An advanced GraphQL Java program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using
+a bespoke ExecutionStrategy. It also uses a web server.
 
 See the README in [custom-directives/](custom-directives/).
 

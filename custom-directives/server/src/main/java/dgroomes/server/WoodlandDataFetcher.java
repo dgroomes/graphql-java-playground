@@ -1,4 +1,4 @@
-package dgroomes.cli;
+package dgroomes.server;
 
 import dgroomes.woodlands.Woodland;
 import dgroomes.woodlands.WoodlandType;
