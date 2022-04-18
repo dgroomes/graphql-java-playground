@@ -23,6 +23,7 @@ dependencies {
     implementation("org.slf4j:slf4j-api")
     runtimeOnly("org.slf4j:slf4j-simple")
 
+    implementation(project(":java-utility"))
     implementation(project(":graphql-extensions"))
     implementation(project(":woodlands"))
 

@@ -12,7 +12,7 @@ import graphql.schema.idl.TypeDefinitionRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
+import java.util.List;
 
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
@@ -26,14 +26,15 @@ public class GraphqlWiring {
   /**
    * Build the GraphQL runtime wiring into the final form: an instance of {@link GraphQL}
    *
-   * @param schemaFilePath the path to the main GraphQL schema file (*.graphqls)
-   * @param extensionsSchemaFilePath the path to the 'graphql-extensions' module's GraphQL schema file (*.graphqls)
+   * @param schemas a list of GraphQL schemas represented as strings.
    */
-  public static GraphQL build(String schemaFilePath, String extensionsSchemaFilePath) {
+  public static GraphQL build(List<String> schemas) {
     var schemaParser = new SchemaParser();
     var typeRegistry = new TypeDefinitionRegistry();
-    typeRegistry.merge(schemaParser.parse(new File(schemaFilePath)));
-    typeRegistry.merge(schemaParser.parse(new File(extensionsSchemaFilePath)));
+
+    for (var schemaResource : schemas) {
+      typeRegistry.merge(schemaParser.parse(schemaResource));
+    }
 
     var runtimeWiring = newRuntimeWiring()
             .type("Query", builder -> builder.dataFetcher("woodland", new WoodlandDataFetcher()))

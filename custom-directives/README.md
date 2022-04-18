@@ -25,7 +25,7 @@ Follow these instructions to build and run the app:
 2. Build the program distribution:
     * `./gradlew :server:installDist`
 3. Run the GraphQL server:
-    * `./server/build/install/server/bin/server $PWD/server/schema.graphqls $PWD/graphql-extensions/extensions.graphqls`
+    * `./server/build/install/server/bin/server`
 5. Make a query:
     * ```bash
       curl http://127.0.0.1:8080/graphql --header "Content-Type:application/graphql" --data ' 

@@ -7,6 +7,8 @@ import org.http4k.server.Netty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /**
  * An http4k-based (and Netty-based) GraphQL server.
  */
@@ -16,14 +18,12 @@ public class Server {
   private final static int PORT = 8080;
 
   public static void main(String[] args) {
-    if (args.length != 2) {
-      var msg = "Expected to find two arguments (the location of the GraphQL schema files) but found %d.".formatted(args.length);
-      throw new IllegalArgumentException(msg);
-    }
 
     Http4kServer server;
     {
-      GraphQL graphql = GraphqlWiring.build(args[0], args[1]);
+      String mainSchema = ClasspathUtil.classpathResourceToString("/schema.graphqls");
+      String extensionsSchema = ClasspathUtil.classpathResourceToString("/extensions.graphqls");
+      GraphQL graphql = GraphqlWiring.build(List.of(mainSchema, extensionsSchema));
       var graphqlHandler = new GraphqlHandler(graphql);
       server = Http4kServerKt.asServer(graphqlHandler, new Netty(PORT));
     }
