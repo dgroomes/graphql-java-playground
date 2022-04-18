@@ -5,8 +5,8 @@ plugins {
 }
 
 /**
- * Configure the compiler task, test task, start script creation task, and the run task to enable Java language "Preview
- * Features". Specifically, we want the "JEP 406: Pattern Matching for switch" preview feature. https://openjdk.java.net/jeps/406
+ * Configure the 'application' tasks to enable Java language "Preview Features". Specifically, we want the "JEP 406: Pattern Matching for switch"
+ * preview feature. https://openjdk.java.net/jeps/406
  */
 tasks {
     withType(JavaCompile::class.java) {
@@ -16,14 +16,6 @@ tasks {
     withType(Test::class.java) {
         jvmArgs = listOf("--enable-preview")
         useJUnitPlatform()
-    }
-
-    named<CreateStartScripts>("startScripts") {
-        defaultJvmOpts = listOf("--enable-preview")
-    }
-
-    named<JavaExec>("run") {
-        jvmArgs = listOf("--enable-preview")
     }
 }
 

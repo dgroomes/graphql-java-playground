@@ -95,6 +95,8 @@ General clean-ups, TODOs and things I wish to implement for this project:
   a great demo because of Insomnia's built-in support for GraphQL. It fetches the schema and does auto-complete! Much
   more interesting than a CLI (but the CLI is a good vehicle for basic demos).
 * [ ] Split out the GraphQL schema file and runtime wiring code into a new module named `graphql/`.
+* [ ] Add a front-end project that serves GraphiQL (an in-browser GraphQL explorer, as opposed to Insomnia). This is a
+  very large addition to this project, but the `custom-directives/` project is after all an advanced example. 
 
 
 ## Reference
