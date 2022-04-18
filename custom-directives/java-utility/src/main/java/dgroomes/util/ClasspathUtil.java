@@ -1,4 +1,4 @@
-package dgroomes.server;
+package dgroomes.util;
 
 import java.io.IOException;
 

@@ -1,13 +1,12 @@
 package dgroomes.server;
 
+import dgroomes.graphql.GraphqlWiring;
 import graphql.GraphQL;
 import org.http4k.server.Http4kServer;
 import org.http4k.server.Http4kServerKt;
 import org.http4k.server.Netty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 /**
  * An http4k-based (and Netty-based) GraphQL server.
@@ -21,9 +20,7 @@ public class Server {
 
     Http4kServer server;
     {
-      String mainSchema = ClasspathUtil.classpathResourceToString("/schema.graphqls");
-      String extensionsSchema = ClasspathUtil.classpathResourceToString("/extensions.graphqls");
-      GraphQL graphql = GraphqlWiring.build(List.of(mainSchema, extensionsSchema));
+      GraphQL graphql = GraphqlWiring.build();
       var graphqlHandler = new GraphqlHandler(graphql);
       server = Http4kServerKt.asServer(graphqlHandler, new Netty(PORT));
     }

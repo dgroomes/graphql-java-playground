@@ -1,7 +1,6 @@
-package dgroomes.server;
+package dgroomes.graphql;
 
-import dgroomes.graphql.GpDirectivesExecutionStrategy;
-import dgroomes.graphql.SortOrder;
+import dgroomes.util.ClasspathUtil;
 import dgroomes.woodlands.WoodlandType;
 import graphql.GraphQL;
 import graphql.execution.ExecutionStrategy;
@@ -25,15 +24,15 @@ public class GraphqlWiring {
 
   /**
    * Build the GraphQL runtime wiring into the final form: an instance of {@link GraphQL}
-   *
-   * @param schemas a list of GraphQL schemas represented as strings.
    */
-  public static GraphQL build(List<String> schemas) {
+  public static GraphQL build() {
     var schemaParser = new SchemaParser();
     var typeRegistry = new TypeDefinitionRegistry();
 
-    for (var schemaResource : schemas) {
-      typeRegistry.merge(schemaParser.parse(schemaResource));
+    List<String> schemaResources = List.of("/schema.graphqls", "/extensions.graphqls");
+    for (var schemaResource : schemaResources) {
+      String schema = ClasspathUtil.classpathResourceToString(schemaResource);
+      typeRegistry.merge(schemaParser.parse(schema));
     }
 
     var runtimeWiring = newRuntimeWiring()

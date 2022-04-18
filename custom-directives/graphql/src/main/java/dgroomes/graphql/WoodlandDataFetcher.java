@@ -1,4 +1,4 @@
-package dgroomes.server;
+package dgroomes.graphql;
 
 import dgroomes.woodlands.Woodland;
 import dgroomes.woodlands.WoodlandType;
