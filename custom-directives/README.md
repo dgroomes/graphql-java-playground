@@ -26,7 +26,7 @@ Follow these instructions to build and run the app:
     * `./gradlew :server:installDist`
 3. Run the GraphQL server:
     * `./server/build/install/server/bin/server`
-5. Make a query:
+4. Make a query:
     * ```bash
       curl http://127.0.0.1:8080/graphql --header "Content-Type:application/graphql" --data ' 
       {
@@ -48,7 +48,7 @@ Follow these instructions to build and run the app:
         }
       }
       ```
-6. Try making a request from [Insomnia](https://insomnia.rest/) for happier development:
+5. Try making a request from [Insomnia](https://insomnia.rest/) for happier development:
     * For example, try the following request that uses the `@gp_sort` directive:
     * <img src="insomnia-screenshot.png" alt="insomnia-screenshot" width="500"/>
     * Notice how Insomnia offers an auto-completion suggestion to complete `@gp_sort`. This makes it easy to write
@@ -61,6 +61,20 @@ Follow these instructions to build and run the app:
         }
       }
       ```
+6. Build and serve GraphiQL, an in-browser GraphQL explorer
+    * GraphiQL is served by a React-based web project defined in part by the `package.json` file and the HTML and TypeScript
+      code in the `ui/` directory. Follow the next steps to build the program and serve it.
+7. Use Node 16.14
+8. Install the dependencies
+    * `npm install`
+9. Serve the content (and build continuously)
+    * `npm start`
+10. Open the browser
+    * Open <http://[::1]:8000>
+11. Try another query
+    * Copy and paste from the earlier examples or make your own query. Click the big play button in the top-left corner
+      to execute a request:
+    * <img src="graphiql-screenshot.png" alt="graphiql-screenshot.png" width="500"/>
 
 Tip: to start the program in Java's debug mode, set the following environment variable:
 * `export CUSTOM_DIRECTIVES_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
@@ -95,7 +109,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
   a great demo because of Insomnia's built-in support for GraphQL. It fetches the schema and does auto-complete! Much
   more interesting than a CLI (but the CLI is a good vehicle for basic demos).
 * [x] DONE Split out the GraphQL schema file and runtime wiring code into a new module named `graphql/`.
-* [ ] Add a front-end project that serves GraphiQL (an in-browser GraphQL explorer, as opposed to Insomnia). This is a
+* [x] DONE Add a front-end project that serves GraphiQL (an in-browser GraphQL explorer, as opposed to Insomnia). This is a
   very large addition to this project, but the `custom-directives/` project is after all an advanced example. 
 
 
@@ -110,3 +124,8 @@ General clean-ups, TODOs and things I wish to implement for this project:
     directives which can be applied by end-users of the GraphQL API, where for example, they might want to uppercase
     one field of dozens returned in the response. We don't know where the end-user will use the the `@gp_uppercase`
     directive. 
+* [GraphiQL docs](https://github.com/graphql/graphiql/tree/main/packages/graphiql)
+* [`graphql/graphiql` GitHub issue due to esbuild](https://github.com/graphql/graphiql/issues/2094)
+  * This is an issue I ran into. esbuild doesn't handle the case where a library that's actually bundled into Node should
+    still be treated as a normal dependency for non-Node (i.e. browser) projects because the browser can't access libraries
+    bundled into Node itself. A [workaround is to install the `punycode` dependency](https://github.com/markdown-it/markdown-it/issues/230#issuecomment-723681154).

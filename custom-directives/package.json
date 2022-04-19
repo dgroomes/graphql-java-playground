@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "esbuild": "^0.14.36",
+    "graphiql": "^1.8.7",
+    "graphql": "^16.3.0",
+    "punycode": "^2.1.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "scripts": {
+    "start": "esbuild ui/src/app.tsx --tsconfig=ui/tsconfig.json --platform=browser --servedir=ui/www --outdir=ui/www/js --bundle --serve=[::1]:8000"
+  }
+}
