@@ -15,8 +15,8 @@ repositories {
 }
 
 val slf4jVersion = "1.7.36" // SLF4J releases: http://www.slf4j.org/news.html
-val graphqlJavaVersion = "18.0" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-val classGraphVersion = "4.8.143" // ClassGraph releases: https://github.com/classgraph/classgraph/releases
+val graphqlJavaVersion = "19.2" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+val classGraphVersion = "4.8.149" // ClassGraph releases: https://github.com/classgraph/classgraph/releases
 
 dependencies {
     constraints {

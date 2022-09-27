@@ -30,8 +30,8 @@ repositories {
 }
 
 val slf4jVersion = "1.7.36" // SLF4J releases: http://www.slf4j.org/news.html
-val graphqlJavaVersion = "18.0" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-val http4kVersion = "4.25.8.0" // http4K releases: https://github.com/http4k/http4k/releases
+val graphqlJavaVersion = "19.2" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+val http4kVersion = "4.30.9.0" // http4K releases: https://github.com/http4k/http4k/releases
 
 dependencies {
     constraints {

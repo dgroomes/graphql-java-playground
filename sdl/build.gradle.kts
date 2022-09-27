@@ -13,7 +13,7 @@ java {
 }
 
 val slf4jVersion = "1.7.36" // SLF4J releases: http://www.slf4j.org/news.html
-val graphqlJavaVersion = "18.0" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+val graphqlJavaVersion = "19.2" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
 
 dependencies {
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
