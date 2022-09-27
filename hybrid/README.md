@@ -2,13 +2,16 @@
 
 An intermediate GraphQL Java program where the schema is defined by a hybrid of the SDL file and programmatically in Java code.
 
+
 ## Instructions
 
 Follow these instructions to build and run the program.
 
 1. Use Java 17
 2. Build the program distribution:
-    * `./gradlew :cli:installDist`
+    * ```bash
+      ./gradlew :cli:installDist
+      ```
 3. Run the program:
     * ```bash
       cli/build/install/cli/bin/cli ' 
@@ -18,10 +21,12 @@ Follow these instructions to build and run the program.
       ```
     * It should print something like this:
       ```text
-      [main] INFO dgroomes.JavaInfoGraphql - {javaInfo=17.0.1}
+      [main] INFO dgroomes.JavaInfoGraphql - {javaInfo=17.0.3}
       ```
 4. Alias the build and run commands for happier development:
-    * `alias go="./gradlew :cli:installDist && cli/build/install/cli/bin/cli"`
+    * ```bash
+      alias go="./gradlew :cli:installDist && cli/build/install/cli/bin/cli"
+      ```
     * For example, try the following command to build and run the program in one short step.
     * ```bash
       go ' 

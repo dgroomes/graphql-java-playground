@@ -2,6 +2,7 @@
 
 A GraphQL Java program that defines custom instrumentation code for logging purposes.
 
+
 ## Description
 
 Observability is an important capability so that you can understand what your program is doing. Logs are a classic example
@@ -69,13 +70,16 @@ dgroomes.graphql.GraphqlUtil - {
 }
 ```
 
+
 ## Instructions
 
 Follow these instructions to build and run the app:
 
 1. Use Java 17
 2. Build the program distribution:
-    * `./gradlew :installDist`
+    * ```bash
+      ./gradlew :installDist
+      ```
 3. Run the program:
     * ```bash
       build/install/instrumentation/bin/instrumentation ' 
@@ -86,7 +90,9 @@ Follow these instructions to build and run the app:
       }'
       ```
 4. Alias the build and run commands for happier development:
-    * `alias go="./gradlew :installDist && build/install/instrumentation/bin/instrumentation"`
+    * ```bash
+      alias go="./gradlew :installDist && build/install/instrumentation/bin/instrumentation"
+      ```
     * For example, try the following command to build and run the program in one short step.
     * ```bash
       go ' 

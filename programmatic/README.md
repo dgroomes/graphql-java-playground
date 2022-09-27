@@ -2,13 +2,16 @@
 
 A simple GraphQL program where the schema is defined programmatically in Java code.
 
+
 ## Instructions
 
 Follow these instructions to build and run the app:
 
 1. Use Java 17
 2. Build the app:
-    * `./gradlew installDist`
+    * ```bash
+      ./gradlew installDist
+      ```
 3. Build and run the app:
     * ```bash
       build/install/programmatic/bin/programmatic ' 
@@ -18,7 +21,9 @@ Follow these instructions to build and run the app:
       ```
     * You should notice that the local time in Chicago was printed to the terminal.
 4. Alias the build and run commands for happier development:
-    * `alias go="./gradlew installDist && build/install/programmatic/bin/programmatic"`
+    * ```bash
+      alias go="./gradlew installDist && build/install/programmatic/bin/programmatic"
+      ```
     * For example, try the following command to build and run the program in one short step.
     * ```bash
       go ' 
@@ -33,6 +38,7 @@ Follow these instructions to build and run the app:
         localTime(timezone: EUROPE_PARIS)
       }'
       ```
+
 
 ## TODO
 

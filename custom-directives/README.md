@@ -3,6 +3,7 @@
 An advanced GraphQL Java example program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using
 a bespoke ExecutionStrategy. It also uses a web server.
 
+
 ## Description
 
 GraphQL has a neat feature called [_directives_](https://graphql.org/learn/queries/#directives). You should read the
@@ -17,15 +18,20 @@ case, `gp` is the acronym of `graphql-playground.`
 
 The project also defines a `@gp_sort` directive for sorting lists.
 
+
 ## Instructions
 
 Follow these instructions to build and run the app:
 
 1. Use Java 17
 2. Build the program distribution:
-    * `./gradlew :server:installDist`
+    * ```bash
+      ./gradlew :server:installDist
+      ```
 3. Run the GraphQL server:
-    * `./server/build/install/server/bin/server`
+    * ```bash
+      ./server/build/install/server/bin/server
+      ```
 4. Make a query:
     * ```bash
       curl http://127.0.0.1:8080/graphql --header "Content-Type:application/graphql" --data ' 
@@ -66,9 +72,13 @@ Follow these instructions to build and run the app:
       code in the `ui/` directory. Follow the next steps to build the program and serve it.
 7. Use Node 16.14
 8. Install the dependencies
-    * `npm install`
+    * ```bash
+      npm install
+      ```
 9. Serve the content (and build continuously)
-    * `npm start`
+    * ```bash
+      npm start
+      ```
 10. Open the browser
     * Open <http://[::1]:8000>
 11. Try another query
@@ -78,6 +88,7 @@ Follow these instructions to build and run the app:
 
 Tip: to start the program in Java's debug mode, set the following environment variable:
 * `export CUSTOM_DIRECTIVES_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
+
 
 ## WishList
 
