@@ -1,7 +1,7 @@
 # custom-directives
 
 An advanced GraphQL Java example program that defines and implements custom directives like `@gp_uppercase` and `@gp_sort` using
-a bespoke ExecutionStrategy. It also uses a web server.
+a bespoke ExecutionStrategy. It also uses a web server and demonstrates GraphiQL.
 
 
 ## Description

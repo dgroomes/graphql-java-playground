@@ -31,6 +31,8 @@ class GraphqlHandler(private val graphql: GraphQL) : HttpHandler {
 
         // Default to "application/json" if no Content-Type header is present. Insomnia, for example, does not include
         // this header when sending GraphQL requests. I'm sure many tools omit the header.
+        //
+        // Don't be alarmed by the lowercase 'content-type'; http4k searches for headers case insensitively.
         val contentType: String = request.header("content-type") ?: "application/json"
 
         val typedContentType: SupportedContentType = when (contentType.lowercase()) {
