@@ -14,7 +14,7 @@ in clear detail.
 Custom directives can be defined for use in the schema, in queries, or both! In this project, we define a directive that
 can be used in queries for upper-casing strings: `@gp_uppercase`. Per convention, the directive is given a custom prefix
 ending in `_` so that users can distinguish it from standard built-in directives like `@skip` and `@include`. In this
-case, `gp` is the acronym of `graphql-playground.`
+case, `gp` is the acronym for `graphql-playground.`
 
 The project also defines a `@gp_sort` directive for sorting lists.
 
@@ -56,7 +56,7 @@ Follow these instructions to build and run the app:
       ```
 5. Try making a request from [Insomnia](https://insomnia.rest/) for happier development:
     * For example, try the following request that uses the `@gp_sort` directive:
-    * <img src="insomnia-screenshot.png" alt="insomnia-screenshot" width="500"/>
+    * <img src="insomnia-screenshot.png" alt="insomnia-screenshot" width="1000"/>
     * Notice how Insomnia offers an auto-completion suggestion to complete `@gp_sort`. This makes it easy to write
       queries! 
     * Next, experiment with combinations of the custom directives.
@@ -70,7 +70,7 @@ Follow these instructions to build and run the app:
 6. Build and serve GraphiQL, an in-browser GraphQL explorer
     * GraphiQL is served by a React-based web project defined in part by the `package.json` file and the HTML and TypeScript
       code in the `ui/` directory. Follow the next steps to build the program and serve it.
-7. Use Node 16.14
+7. Use Node 18.x
 8. Install the dependencies
     * ```bash
       npm install
@@ -84,7 +84,7 @@ Follow these instructions to build and run the app:
 11. Try another query
     * Copy and paste from the earlier examples or make your own query. Click the big play button in the top-left corner
       to execute a request:
-    * <img src="graphiql-screenshot.png" alt="graphiql-screenshot.png" width="500"/>
+    * <img src="graphiql-screenshot.png" alt="graphiql-screenshot.png" width="800"/>
 
 Tip: to start the program in Java's debug mode, set the following environment variable:
 * `export CUSTOM_DIRECTIVES_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
@@ -136,7 +136,9 @@ General clean-ups, TODOs and things I wish to implement for this project:
     one field of dozens returned in the response. We don't know where the end-user will use the the `@gp_uppercase`
     directive. 
 * [GraphiQL docs](https://github.com/graphql/graphiql/tree/main/packages/graphiql)
-* [`graphql/graphiql` GitHub issue due to esbuild](https://github.com/graphql/graphiql/issues/2094)
-  * This is an issue I ran into. esbuild doesn't handle the case where a library that's actually bundled into Node should
-    still be treated as a normal dependency for non-Node (i.e. browser) projects because the browser can't access libraries
-    bundled into Node itself. A [workaround is to install the `punycode` dependency](https://github.com/markdown-it/markdown-it/issues/230#issuecomment-723681154).
+* [GitHub repo `reach/reach-ui` issue #916: *Compatibility with React 18*](https://github.com/reach/reach-ui/issues/916)
+  * Unfortunately, the latest version of GraphiQL (2.2.0) which by many accounts is modernized (hooray for the 2.0 release
+    in Summer 2022) has a transitive peer dependency restriction on React 17 but not later. This is unfortunate because
+    React has been out since March 2022. The GraphiQL [official example apps even continue to declare a dependency on React 17](https://github.com/graphql/graphiql/blob/ab2b52f06213bd9bf90c905c1b460b6939f3d856/examples/graphiql-webpack/package.json#L18)
+    and not React 18. I can afford to be patient, I don't want to outrun the safety of the GraphiQL support or else we're
+    liable to be get burned.
