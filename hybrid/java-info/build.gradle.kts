@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation("org.slf4j:slf4j-api")
-    implementation("io.github.classgraph:classgraph")
+    implementation(libs.slf4j.api)
+    implementation(libs.classgraph)
 }

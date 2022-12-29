@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation("org.slf4j:slf4j-api")
-    api("com.graphql-java:graphql-java")
+    implementation(libs.slf4j.api)
+    api(libs.graphql.java)
 }
