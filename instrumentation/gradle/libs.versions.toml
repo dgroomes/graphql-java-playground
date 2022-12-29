@@ -1,0 +1,15 @@
+[versions]
+# SLF4J releases: http://www.slf4j.org/news.html
+slf4j = "2.0.6"
+
+# GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+graphql-java = "20.0"
+
+# Jackson releases: https://github.com/FasterXML/jackson/wiki/Jackson-Releases
+jackson = "2.14.1"
+
+[libraries]
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+graphql-java = { module = "com.graphql-java:graphql-java", version.ref = "graphql-java" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
