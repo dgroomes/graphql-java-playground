@@ -1,7 +1,6 @@
 package dgroomes.graphql;
 
 import graphql.ExecutionResult;
-import graphql.ExecutionResultImpl;
 import graphql.execution.AsyncExecutionStrategy;
 import graphql.execution.ExecutionContext;
 import graphql.execution.ExecutionStrategyParameters;
@@ -99,9 +98,7 @@ public class GpDirectivesExecutionStrategy extends AsyncExecutionStrategy {
 
         String upperCase = stringData.toUpperCase();
 
-        // Although 'ExecutionResultImpl' is marked as @Internal, it is the only implementation of 'ExecutionResult' and
-        // we need it. Tread carefully when you do stuff like this!
-        ExecutionResultImpl transformedExecutionResult = new ExecutionResultImpl(upperCase, null);
+        ExecutionResult transformedExecutionResult = executionResult.transform(it -> it.data(upperCase));
 
         return CompletableFuture.completedFuture(transformedExecutionResult);
     }
@@ -177,9 +174,7 @@ public class GpDirectivesExecutionStrategy extends AsyncExecutionStrategy {
         @SuppressWarnings("unchecked")
         List<?> sorted = StreamSupport.stream(iterableData.spliterator(), true).sorted(comparator).toList();
 
-        // Although 'ExecutionResultImpl' is marked as @Internal, it is the only implementation of 'ExecutionResult' and
-        // we need it. Tread carefully when you do stuff like this!
-        ExecutionResultImpl transformedExecutionResult = new ExecutionResultImpl(sorted, null);
+        ExecutionResult transformedExecutionResult = executionResult.transform(it -> it.data(sorted));
 
         // Verbosely wrap up the sorted payload into the GraphQL machinery.
         return new FieldValueInfo.Builder(fieldValueInfo.getCompleteValueType())
