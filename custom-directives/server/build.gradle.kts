@@ -20,14 +20,14 @@ tasks {
 }
 
 dependencies {
-    implementation("org.slf4j:slf4j-api")
-    runtimeOnly("org.slf4j:slf4j-simple")
+    implementation(libs.slf4j.api)
+    runtimeOnly(libs.slf4j.simple)
 
     implementation(project(":graphql"))
 
-    implementation("org.http4k:http4k-core:version")
-    implementation("org.http4k:http4k-server-netty")
-    implementation("org.http4k:http4k-format-jackson")
+    implementation(libs.http4k.core)
+    implementation(libs.http4k.server.netty)
+    implementation(libs.http4k.format.jackson)
 }
 
 application {

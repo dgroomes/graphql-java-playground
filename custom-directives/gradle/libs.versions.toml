@@ -1,0 +1,17 @@
+[versions]
+# SLF4J releases: http://www.slf4j.org/news.html
+slf4j = "1.7.36"
+
+# GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+graphql-java = "19.2"
+
+# http4K releases: https://github.com/http4k/http4k/releases
+http4k = "4.30.9.0"
+
+[libraries]
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+graphql-java = { module = "com.graphql-java:graphql-java", version.ref = "graphql-java" }
+http4k-core = { module = "org.http4k:http4k-core", version.ref = "http4k" }
+http4k-server-netty = { module = "org.http4k:http4k-server-netty", version.ref = "http4k" }
+http4k-format-jackson = { module = "org.http4k:http4k-format-jackson", version.ref = "http4k" }

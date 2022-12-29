@@ -28,20 +28,3 @@ tasks {
 repositories {
     mavenCentral()
 }
-
-val slf4jVersion = "1.7.36" // SLF4J releases: http://www.slf4j.org/news.html
-val graphqlJavaVersion = "19.2" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-val http4kVersion = "4.30.9.0" // http4K releases: https://github.com/http4k/http4k/releases
-
-dependencies {
-    constraints {
-        implementation("org.slf4j:slf4j-api:$slf4jVersion")
-        runtimeOnly("org.slf4j:slf4j-simple:$slf4jVersion")
-
-        implementation("com.graphql-java:graphql-java:$graphqlJavaVersion")
-
-        implementation("org.http4k:http4k-core:$http4kVersion")
-        implementation("org.http4k:http4k-server-netty:$http4kVersion")
-        implementation("org.http4k:http4k-format-jackson:$http4kVersion")
-    }
-}
