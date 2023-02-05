@@ -1,16 +1,7 @@
-# graphql-playground
+# graphql-java-playground
 
-📚 Learning and exploring GraphQL and the "GraphQL Java" library (<https://www.graphql-java.com/>).
+📚 Learning and exploring the "GraphQL Java" framework (<https://www.graphql-java.com/>).
 
-> ### GraphQL
-> 
-> A query language for your API
->
-> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL
-> provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly
-> what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
-> 
-> --<cite>https://graphql.org/</cite/
 
 > ### GraphQL Java
 >

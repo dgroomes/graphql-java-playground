@@ -1,4 +1,4 @@
-rootProject.name = "graphql-playground"
+rootProject.name = "graphql-java-playground"
 
 // What is the point of defining a Gradle project in the root of this repository? After all, each of the sub-projects
 // are independently runnable... What does it mean to "run the root project"?
