@@ -15,6 +15,7 @@ For example, the logs will show something like:
 
 ```text
 beginExecution - instrumented
+beginExecution - dispatched
 beginField - /stateOfH20 - instrumented
 beginFieldFetch - /stateOfH20 - instrumented
 instrumentDataFetcher - /stateOfH20 - instrumented
@@ -58,7 +59,6 @@ beginField - /stateOfH20 - completed
 beginExecution - completed
 instrumentExecutionResult - instrumented
 instrumentExecutionResult - completed
-
 dgroomes.Cli - Results:
 dgroomes.graphql.GraphqlUtil - {
   "stateOfH20" : {
@@ -123,3 +123,10 @@ Follow these instructions to build and run the app:
 
 Tip: to start the program in Java's debug mode, set the following environment variable:
 * `export INSTRUMENTATION_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
+
+
+## Wish List
+
+General clean-ups, TODOs and things I wish to implement for this project:
+
+* [x] DONE Replace usage of deprecated `SimpleInstrumentation` with the new alternative.
