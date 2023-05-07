@@ -21,7 +21,7 @@ Follow these instructions to build and run the program.
       ```
     * It should print something like this:
       ```text
-      [main] INFO dgroomes.JavaInfoGraphql - {javaInfo=17.0.3}
+      [main] INFO dgroomes.JavaInfoGraphql - {javaInfo=17.0.7}
       ```
 4. Alias the build and run commands for happier development:
     * ```bash

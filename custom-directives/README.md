@@ -90,7 +90,7 @@ Tip: to start the program in Java's debug mode, set the following environment va
 * `export CUSTOM_DIRECTIVES_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005`
 
 
-## WishList
+## Wish List
 
 General clean-ups, TODOs and things I wish to implement for this project:
 

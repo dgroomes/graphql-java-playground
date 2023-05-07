@@ -1,12 +1,12 @@
 [versions]
 # SLF4J releases: http://www.slf4j.org/news.html
-slf4j = "2.0.6"
+slf4j = "2.0.7"
 
 # GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-graphql-java = "20.0"
+graphql-java = "20.2"
 
 # ClassGraph releases: https://github.com/classgraph/classgraph/releases
-classgraph = "4.8.153"
+classgraph = "4.8.157"
 
 [libraries]
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
