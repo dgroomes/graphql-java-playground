@@ -12,7 +12,7 @@ This is an "echo" program that echoes a message back to you, but with some flair
 
 Follow these instructions to build and run the app:
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Build the app:
     * ```bash
       ./gradlew installDist
