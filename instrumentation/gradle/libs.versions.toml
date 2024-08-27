@@ -3,7 +3,7 @@
 slf4j = "2.0.16"
 
 # GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-graphql-java = "20.9"
+graphql-java = "21.5"
 
 # Jackson releases: https://github.com/FasterXML/jackson/wiki/Jackson-Releases
 jackson = "2.17.2"

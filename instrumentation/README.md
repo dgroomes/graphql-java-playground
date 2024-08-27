@@ -1,5 +1,41 @@
 # instrumentation
 
+---
+**TEMP BRANCH**
+
+I made this branch to figure out how `AbortExecutionException` works. It turns out in graphql-java 20.x and 21.5, the
+result is able to include partial data even if an `AbortExecutionException` is thrown.
+
+```text
+gw installDist; build/install/instrumentation/bin/instrumentation '
+∙       {
+∙         stateOfH20 {
+∙           description
+∙           nextState {
+∙             description
+∙             nextState {
+∙               description
+∙             }
+∙           }
+∙         }
+∙       }'
+
+BUILD SUCCESSFUL in 1s
+5 actionable tasks: 3 executed, 2 up-to-date
+23:53:55 [main] INFO query-execution - 'description' field encountered 1 times
+23:53:55 [main] INFO query-execution - 'description' field encountered 2 times
+23:53:55 [main] INFO query-execution - 'description' field encountered 3 times
+23:53:55 [main] INFO dgroomes.Cli - Results:
+23:53:55 [main] INFO dgroomes.graphql.GraphqlUtil - {
+  "stateOfH20" : {
+    "description" : "Frozen water is ice (the solid state)",
+    "nextState" : null
+  }
+}
+```
+
+---
+
 A GraphQL Java program that defines custom instrumentation code for logging purposes.
 
 
@@ -77,11 +113,11 @@ Follow these instructions to build and run the app:
 
 1. Pre-requisite: Java 21
 2. Build the program distribution:
-    * ```bash
+    * ```shell
       ./gradlew :installDist
       ```
 3. Run the program:
-    * ```bash
+    * ```shell
       build/install/instrumentation/bin/instrumentation ' 
       {
         stateOfH20 {
@@ -89,25 +125,9 @@ Follow these instructions to build and run the app:
         }
       }'
       ```
-4. Alias the build and run commands for happier development:
-    * ```bash
-      alias go="./gradlew :installDist && build/install/instrumentation/bin/instrumentation"
-      ```
-    * For example, try the following command to build and run the program in one short step.
-    * ```bash
-      go ' 
-      {
-        stateOfH20 {
-          description
-          nextState {
-            description
-          }
-        }
-      }'
-      ```
-    * Next, get the highest state of H20.
-    * ```bash
-      go ' 
+4. Next, get the highest state of H20.
+    * ```shell
+      ./gradlew :installDist && build/install/instrumentation/bin/instrumentation '
       {
         stateOfH20 {
           description

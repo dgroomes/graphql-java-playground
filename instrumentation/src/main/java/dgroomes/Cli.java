@@ -1,5 +1,6 @@
 package dgroomes;
 
+import dgroomes.graphql.EarlyExitInstrumentation;
 import dgroomes.graphql.GraphqlUtil;
 import dgroomes.graphql.LoggingInstrumentation;
 import dgroomes.json.JsonUtil;
@@ -47,6 +48,7 @@ public class Cli {
 
         return graphql.GraphQL.newGraphQL(graphQLSchema)
                 .instrumentation(new LoggingInstrumentation())
+                .instrumentation(new EarlyExitInstrumentation())
                 .build();
     }
 
