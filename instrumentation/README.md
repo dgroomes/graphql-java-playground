@@ -75,7 +75,7 @@ dgroomes.graphql.GraphqlUtil - {
 
 Follow these instructions to build and run the app:
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Build the program distribution:
     * ```bash
       ./gradlew :installDist
