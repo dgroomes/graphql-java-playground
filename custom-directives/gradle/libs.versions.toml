@@ -1,12 +1,12 @@
 [versions]
 # SLF4J releases: http://www.slf4j.org/news.html
-slf4j = "2.0.7"
+slf4j = "2.0.16"
 
 # GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-graphql-java = "20.2"
+graphql-java = "20.9"
 
 # http4K releases: https://github.com/http4k/http4k/releases
-http4k = "4.43.0.0"
+http4k = "5.29.0.0"
 
 [libraries]
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
@@ -19,4 +19,4 @@ http4k-format-jackson = { module = "org.http4k:http4k-format-jackson", version.r
 [plugins]
 # Kotlin releases: https://kotlinlang.org/docs/releases.html#release-details
 # Kotlin "JVM" Gradle plugin: https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
-kotlin-jvm = { version = "1.8.21", id = "org.jetbrains.kotlin.jvm" }
+kotlin-jvm = { version = "1.9.25", id = "org.jetbrains.kotlin.jvm" }

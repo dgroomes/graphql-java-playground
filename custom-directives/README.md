@@ -23,7 +23,7 @@ The project also defines a `@gp_sort` directive for sorting lists.
 
 Follow these instructions to build and run the app:
 
-1. Use Java 17
+1. Pre-requisite: Java 21, Node v20.x
 2. Build the program distribution:
     * ```bash
       ./gradlew :server:installDist
@@ -70,18 +70,17 @@ Follow these instructions to build and run the app:
 6. Build and serve GraphiQL, an in-browser GraphQL explorer
     * GraphiQL is served by a React-based web project defined in part by the `package.json` file and the HTML and TypeScript
       code in the `ui/` directory. Follow the next steps to build the program and serve it.
-7. Use Node 18.x
-8. Install the dependencies
+7. Install the dependencies
     * ```bash
       npm install
       ```
-9. Serve the content (and build continuously)
+8. Serve the content (and build continuously)
     * ```bash
       npm start
       ```
-10. Open the browser
-    * Open <http://[::1]:8000>
-11. Try another query
+9. Open the browser
+   * Open <http://[::1]:8000>
+10. Try another query
     * Copy and paste from the earlier examples or make your own query. Click the big play button in the top-left corner
       to execute a request:
     * <img src="graphiql-screenshot.png" alt="graphiql-screenshot.png" width="800"/>
