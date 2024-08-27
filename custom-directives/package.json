@@ -1,14 +1,14 @@
 {
   "devDependencies": {
-    "esbuild": "^0.17.18",
-    "@types/react": "^17.0.59",
-    "@types/react-dom": "^17.0.20"
+    "esbuild": "^0.23.1",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0"
   },
   "dependencies": {
-    "graphiql": "^2.4.2",
-    "graphql": "^16.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "graphiql": "^3.7.1",
+    "graphql": "^16.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "scripts": {
     "start": "esbuild ui/src/app.tsx --tsconfig=ui/tsconfig.json --platform=browser --servedir=ui/www --outdir=ui/www/js --bundle --serve=[::1]:8000"

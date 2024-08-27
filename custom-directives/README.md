@@ -135,9 +135,3 @@ General clean-ups, TODOs and things I wish to implement for this project:
     one field of dozens returned in the response. We don't know where the end-user will use the the `@gp_uppercase`
     directive. 
 * [GraphiQL docs](https://github.com/graphql/graphiql/tree/main/packages/graphiql)
-* [GitHub repo `reach/reach-ui` issue #916: *Compatibility with React 18*](https://github.com/reach/reach-ui/issues/916)
-  * Unfortunately, the latest version of GraphiQL (2.2.0) which by many accounts is modernized (hooray for the 2.0 release
-    in Summer 2022) has a transitive peer dependency restriction on React 17 but not later. This is unfortunate because
-    React has been out since March 2022. The GraphiQL [official example apps even continue to declare a dependency on React 17](https://github.com/graphql/graphiql/blob/ab2b52f06213bd9bf90c905c1b460b6939f3d856/examples/graphiql-webpack/package.json#L18)
-    and not React 18. I can afford to be patient, I don't want to outrun the safety of the GraphiQL support or else we're
-    liable to be get burned.
