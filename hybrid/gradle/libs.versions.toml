@@ -1,9 +1,9 @@
 [versions]
 # SLF4J releases: http://www.slf4j.org/news.html
-slf4j = "2.0.7"
+slf4j = "2.0.16"
 
 # GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-graphql-java = "20.2"
+graphql-java = "20.9"
 
 # ClassGraph releases: https://github.com/classgraph/classgraph/releases
 classgraph = "4.8.157"

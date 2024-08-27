@@ -4,19 +4,13 @@ plugins {
     java
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
 repositories {
     mavenCentral()
 }
 
-val slf4jVersion = "1.7.36" // SLF4J releases: http://www.slf4j.org/news.html
-val graphqlJavaVersion = "19.2" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
-val classGraphVersion = "4.8.149" // ClassGraph releases: https://github.com/classgraph/classgraph/releases
+val slf4jVersion = "2.0.16" // SLF4J releases: http://www.slf4j.org/news.html
+val graphqlJavaVersion = "20.9" // GraphQL Java releases: https://github.com/graphql-java/graphql-java/releases
+val classGraphVersion = "4.8.175" // ClassGraph releases: https://github.com/classgraph/classgraph/releases
 
 dependencies {
     constraints {

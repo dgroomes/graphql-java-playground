@@ -7,7 +7,7 @@ An intermediate GraphQL Java program where the schema is defined by a hybrid of 
 
 Follow these instructions to build and run the program.
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Build the program distribution:
     * ```bash
       ./gradlew :cli:installDist
@@ -21,7 +21,7 @@ Follow these instructions to build and run the program.
       ```
     * It should print something like this:
       ```text
-      [main] INFO dgroomes.JavaInfoGraphql - {javaInfo=17.0.7}
+      23:24:52 [main] INFO dgroomes.graphql.GraphqlUtil - {javaInfo=The Java version is: 21.0.3}
       ```
 4. Alias the build and run commands for happier development:
     * ```bash
@@ -44,7 +44,7 @@ Follow these instructions to build and run the program.
     * It should print out all the classes in the `org.slf4j` package. The `PACKAGE_ORG_SLF4J` enum value was defined
       programmatically at runtime. In other words, `PACKAGE_ORG_SLF4J` is not defined in the SDL file `schema.graphqls`!
       The ability to define the GraphQL schema partly in a static SDL file and partly at runtime showcases GraphQL and
-      `graphql-java`'s flexibility. Pretty neat! The response will look someting like the following.
+      `graphql-java`'s flexibility. Pretty neat! The response will look something like the following.
     * ```text
       18:06:59 [main] INFO dgroomes.graphql.GraphqlUtil - {javaInfo=org.slf4j.ILoggerFactory
       org.slf4j.IMarkerFactory
